@@ -67,6 +67,7 @@ class ViewController: UIViewController {
     func checkWinner(){
         let colors = [UIColor.red,UIColor.blue]
         for color in colors {
+            var tie = 3
             for i in 0..<buttons.count {
                 if buttons[i][0].backgroundColor!.isEqual(color) && buttons[i][1].backgroundColor!.isEqual(color) && buttons[i][2].backgroundColor!.isEqual(color){
                     endGame(winner: "\(color.accessibilityName) Winns!!!")
@@ -74,6 +75,12 @@ class ViewController: UIViewController {
                 if buttons[0][i].backgroundColor!.isEqual(color) && buttons[1][i].backgroundColor!.isEqual(color) && buttons[2][i].backgroundColor!.isEqual(color){
                     endGame(winner: "\(color.accessibilityName) Winns!!!")
                 }
+                if !buttons[i][0].isEnabled && !buttons[i][1].isEnabled && !buttons[i][2].isEnabled{
+                    tie -= 1
+                }
+            }
+            if tie == 0 {
+                endGame(winner: "No Winner!!!")
             }
             if buttons[0][0].backgroundColor!.isEqual(color) && buttons[1][1].backgroundColor!.isEqual(color) && buttons[2][2].backgroundColor!.isEqual(color){
                 endGame(winner: "\(color.accessibilityName) Winns!!!")
