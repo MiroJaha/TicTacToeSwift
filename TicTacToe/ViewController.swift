@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     var game = 9
     var buttons = [[UIButton]]()
 
+    //Outlet collection
     @IBOutlet weak var topLeft: UIButton!
     @IBOutlet weak var topCenter: UIButton!
     @IBOutlet weak var topRight: UIButton!
@@ -51,6 +52,7 @@ class ViewController: UIViewController {
             button.isEnabled = false
             player = 1
         }
+//        button.isEnabled = false
         checkWinner()
     }
     
